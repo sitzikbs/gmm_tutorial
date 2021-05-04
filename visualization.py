@@ -5,7 +5,7 @@ from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.cm as cmx
 import os
 
-def visualize_3d_gmm(points, w, mu, stdev, export=True):
+def visualize_3d_gmm(points, w, mu, stdev, export=True, X=[-1,1], Y=[-1,1], Z=[-1,1]):
     '''
     plots points and their corresponding gmm model in 3D
     Input: 
@@ -22,9 +22,9 @@ def visualize_3d_gmm(points, w, mu, stdev, export=True):
     # Visualize data
     fig = plt.figure(figsize=(8, 8))
     axes = fig.add_subplot(111, projection='3d')
-    axes.set_xlim([-1, 1])
-    axes.set_ylim([-1, 1])
-    axes.set_zlim([-1, 1])
+    axes.set_xlim(X)
+    axes.set_ylim(Y)
+    axes.set_zlim(Z)
     plt.set_cmap('Set1')
     colors = cmx.Set1(np.linspace(0, 1, n_gaussians))
     for i in range(n_gaussians):
